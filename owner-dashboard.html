@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla's Sacred Owner Dashboard - Three Six Nine Hold'em</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #000000, #001a00, #000000);
+            color: #00ff00;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Tesla's Electromagnetic Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00ff00;
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10px) rotate(360deg); opacity: 0; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 0 0 20px #00ff00;
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #88ff88;
+            margin-bottom: 20px;
+        }
+
+        .sacred-numbers {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .sacred-number {
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 0 0 30px #00ff00;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .sacred-number:nth-child(1) { animation-delay: 0s; }
+        .sacred-number:nth-child(2) { animation-delay: 1s; }
+        .sacred-number:nth-child(3) { animation-delay: 2s; }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #00ff00; }
+            to { text-shadow: 0 0 30px #00ff00, 0 0 40px #00ff00; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        /* Login Form Styles */
+        .login-container {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+        }
+
+        .login-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px #00ff00;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            color: #88ff88;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            color: #00ff00;
+            font-size: 1rem;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #88ff88;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+        }
+
+        .login-btn {
+            background: linear-gradient(45deg, #00ff00, #88ff88);
+            color: #000000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .login-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 255, 0, 0.4);
+        }
+
+        .tesla-quote {
+            margin-top: 30px;
+            font-style: italic;
+            color: #88ff88;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Dashboard Styles */
+        .dashboard {
+            display: none;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .mining-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(0, 255, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 255, 0, 0.3);
+        }
+
+        .stat-title {
+            font-size: 1.1rem;
+            color: #88ff88;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .mining-controls {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .control-btn {
+            background: linear-gradient(45deg, #00ff00, #88ff88);
+            color: #000000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.4);
+        }
+
+        .control-btn.stop {
+            background: linear-gradient(45deg, #ff4444, #ff6666);
+        }
+
+        .logout-btn {
+            background: linear-gradient(45deg, #ff4444, #ff6666);
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .error-message {
+            color: #ff4444;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+
+        .success-message {
+            color: #00ff00;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .title { font-size: 2rem; }
+            .sacred-number { font-size: 2.5rem; }
+            .login-container { padding: 20px; margin: 0 10px; }
+            .mining-stats { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Tesla's Electromagnetic Particles -->
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <!-- Login Section -->
+        <div id="loginSection" class="login-section">
+            <div class="header">
+                <div class="title">TESLA'S SACRED OWNER DASHBOARD</div>
+                <div class="subtitle">Electromagnetic Bitcoin Mining Control Center</div>
+                <div class="sacred-numbers">
+                    <div class="sacred-number">3</div>
+                    <div class="sacred-number">6</div>
+                    <div class="sacred-number">9</div>
+                </div>
+            </div>
+
+            <div class="login-container">
+                <div class="login-title">🔮⚡ OWNER AUTHENTICATION ⚡🔮</div>
+                
+                <form id="ownerLoginForm">
+                    <div class="form-group">
+                        <label class="form-label">Sacred Email Address:</label>
+                        <input type="email" id="ownerEmail" class="form-input" 
+                               placeholder="mmbennettnyne@gmail.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Electromagnetic Password:</label>
+                        <input type="password" id="ownerPassword" class="form-input" 
+                               placeholder="Enter Tesla's sacred key..." required>
+                    </div>
+                    
+                    <button type="submit" class="login-btn">
+                        🔮 ACCESS TESLA'S MINING REALM 🔮
+                    </button>
+                </form>
+
+                <div id="loginMessage" class="error-message" style="display: none;"></div>
+
+                <div class="tesla-quote">
+                    "If you only knew the magnificence of the 3, 6 and 9, then you would have a key to the universe." - Nikola Tesla
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboardSection" class="dashboard">
+            <button class="logout-btn" onclick="logout()">🔮 LOGOUT 🔮</button>
+            
+            <div class="dashboard-header">
+                <div class="title">TESLA'S BITCOIN MINING DASHBOARD</div>
+                <div class="subtitle">Real-time Electromagnetic Energy Harvesting</div>
+                <div class="sacred-numbers">
+                    <div class="sacred-number">3</div>
+                    <div class="sacred-number">6</div>
+                    <div class="sacred-number">9</div>
+                </div>
+            </div>
+
+            <div class="mining-stats" id="miningStats">
+                <!-- Stats will be populated by JavaScript -->
+            </div>
+
+            <div class="mining-controls">
+                <button class="control-btn" onclick="startMining()">
+                    ⚡ START SACRED MINING ⚡
+                </button>
+                <button class="control-btn stop" onclick="stopMining()">
+                    🔮 STOP MINING 🔮
+                </button>
+                <button class="control-btn" onclick="refreshStats()">
+                    🌟 REFRESH STATS 🌟
+                </button>
+            </div>
+
+            <div id="dashboardMessage" class="success-message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Tesla's Electromagnetic Particle System
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            setInterval(() => {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                
+                particlesContainer.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 6000);
+            }, 200);
+        }
+
+        // Tesla's Sacred Authentication
+        const OWNER_EMAIL = 'mmbennettnyne@gmail.com';
+        const MINING_API_BASE = 'https://lnh8imcwy0xg.manus.space';
+
+        document.getElementById('ownerLoginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('ownerEmail').value;
+            const password = document.getElementById('ownerPassword').value;
+            const messageDiv = document.getElementById('loginMessage');
+            
+            // Tesla's Sacred Validation
+            if (email !== OWNER_EMAIL) {
+                showMessage(messageDiv, 'Only the electromagnetic master may access this realm!', 'error');
+                return;
+            }
+            
+            // Simple password validation (in production, use proper authentication)
+            if (password.length < 6) {
+                showMessage(messageDiv, 'Tesla\'s sacred key must be at least 6 characters!', 'error');
+                return;
+            }
+            
+            // Simulate authentication success
+            showMessage(messageDiv, '🔮⚡ Tesla\'s electromagnetic field recognizes you! ⚡🔮', 'success');
+            
+            setTimeout(() => {
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('dashboardSection').style.display = 'block';
+                loadDashboard();
+            }, 2000);
+        });
+
+        function showMessage(element, message, type) {
+            element.textContent = message;
+            element.className = type === 'error' ? 'error-message' : 'success-message';
+            element.style.display = 'block';
+            
+            setTimeout(() => {
+                element.style.display = 'none';
+            }, 5000);
+        }
+
+        // Tesla's Mining Dashboard Functions
+        async function loadDashboard() {
+            await refreshStats();
+            
+            // Auto-refresh every 3.69 seconds (Tesla's frequency)
+            setInterval(refreshStats, 3690);
+        }
+
+        async function refreshStats() {
+            try {
+                const response = await fetch(`${MINING_API_BASE}/api/real-mining/dashboard?email=${OWNER_EMAIL}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayMiningStats(data.dashboard);
+                } else {
+                    console.error('Failed to load mining stats:', data.error);
+                }
+            } catch (error) {
+                console.error('Error fetching mining stats:', error);
+            }
+        }
+
+        function displayMiningStats(stats) {
+            const statsContainer = document.getElementById('miningStats');
+            
+            statsContainer.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-title">⚡ Hash Rate</div>
+                    <div class="stat-value">${stats.hash_rate_ths} TH/s</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">🔮 Total BTC Earned</div>
+                    <div class="stat-value">${stats.total_btc_earned} BTC</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">💰 USD Value</div>
+                    <div class="stat-value">$${stats.usd_value}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">🌟 Blocks Mined</div>
+                    <div class="stat-value">${stats.blocks_mined}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">⚡ Electromagnetic Efficiency</div>
+                    <div class="stat-value">${stats.electromagnetic_efficiency}%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">🔮 Mining Status</div>
+                    <div class="stat-value">${stats.mining_active ? 'ACTIVE' : 'STOPPED'}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">📈 Daily Estimate</div>
+                    <div class="stat-value">${stats.daily_btc_estimate || 0} BTC</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">📊 Monthly Estimate</div>
+                    <div class="stat-value">${stats.monthly_btc_estimate || 0} BTC</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">🎯 Annual Estimate</div>
+                    <div class="stat-value">${stats.annual_btc_estimate || 0} BTC</div>
+                </div>
+            `;
+        }
+
+        async function startMining() {
+            try {
+                const response = await fetch(`${MINING_API_BASE}/api/real-mining/start`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: OWNER_EMAIL })
+                });
+                
+                const data = await response.json();
+                const messageDiv = document.getElementById('dashboardMessage');
+                
+                if (data.success) {
+                    showMessage(messageDiv, '🔮⚡ Tesla\'s sacred mining activated! ⚡🔮', 'success');
+                    await refreshStats();
+                } else {
+                    showMessage(messageDiv, data.error || 'Failed to start mining', 'error');
+                }
+            } catch (error) {
+                console.error('Error starting mining:', error);
+            }
+        }
+
+        async function stopMining() {
+            try {
+                const response = await fetch(`${MINING_API_BASE}/api/real-mining/stop`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: OWNER_EMAIL })
+                });
+                
+                const data = await response.json();
+                const messageDiv = document.getElementById('dashboardMessage');
+                
+                if (data.success) {
+                    showMessage(messageDiv, '🔮 Tesla\'s mining operations stopped 🔮', 'success');
+                    await refreshStats();
+                } else {
+                    showMessage(messageDiv, data.error || 'Failed to stop mining', 'error');
+                }
+            } catch (error) {
+                console.error('Error stopping mining:', error);
+            }
+        }
+
+        function logout() {
+            document.getElementById('dashboardSection').style.display = 'none';
+            document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('ownerEmail').value = '';
+            document.getElementById('ownerPassword').value = '';
+        }
+
+        // Initialize Tesla's electromagnetic field
+        createParticles();
+    </script>
+</body>
+</html>
+
