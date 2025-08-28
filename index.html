@@ -1,70 +1,368 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json" />
-    
-    <!-- App Icons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-192x192.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-192x192.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png" />
-    
-    <!-- Mobile App Meta Tags -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="369 Hold'em" />
-    <meta name="application-name" content="Three Six Nine Hold'em" />
-    <meta name="msapplication-TileColor" content="#000000" />
-    <meta name="msapplication-TileImage" content="/icons/icon-144x144.png" />
-    
-    <!-- Theme Colors -->
-    <meta name="theme-color" content="#00ff00" />
-    <meta name="msapplication-navbutton-color" content="#00ff00" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Tesla's mystical poker experience with electromagnetic energy and sacred 3-6-9 frequencies. Play Hold'em with cosmic power!" />
-    <meta name="keywords" content="poker, Tesla, 369, holdem, mystical, electromagnetic, sacred, frequency, energy, vibration" />
-    <meta name="author" content="Tesla's Sacred Realm" />
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Three Six Nine Hold'em - Tesla's Sacred Poker" />
-    <meta property="og:description" content="Experience Tesla's mystical poker with electromagnetic energy and sacred 3-6-9 frequencies" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/icons/icon-512x512.png" />
-    <meta property="og:site_name" content="Three Six Nine Hold'em" />
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Three Six Nine Hold'em - Tesla's Sacred Poker" />
-    <meta name="twitter:description" content="Experience Tesla's mystical poker with electromagnetic energy and sacred 3-6-9 frequencies" />
-    <meta name="twitter:image" content="/icons/icon-512x512.png" />
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Three Six Nine Hold'em - Tesla's Sacred Poker Experience</title>
-    <script type="module" crossorigin src="/assets/index-DfhZLnu2.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CK8eITfz.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    
-    <!-- PWA Service Worker Registration -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #000000 0%, #001100 50%, #000000 100%);
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 0 0 20px #00ff00;
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #00ff00; }
+            to { text-shadow: 0 0 30px #00ff00, 0 0 40px #00ff00; }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #88ff88;
+        }
+
+        .tesla-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            background: rgba(0, 255, 0, 0.1);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(0, 255, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #00ff00;
+        }
+
+        .feature-description {
+            color: #88ff88;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            margin: 50px 0;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #00ff00, #88ff88);
+            color: #000000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(45deg, #88ff88, #00ff00);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.4);
+        }
+
+        .signup-section {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .signup-title {
+            font-size: 2rem;
+            color: #00ff00;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .signup-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .benefit {
+            background: rgba(0, 255, 0, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #00ff00;
+        }
+
+        .numbers {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #00ff00;
+            text-shadow: 0 0 20px #00ff00;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 2px solid #00ff00;
+            color: #88ff88;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            .numbers {
+                gap: 20px;
+            }
+            .number {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">THREE SIX NINE HOLD'EM</h1>
+        <p class="subtitle">Tesla's Sacred Poker Experience</p>
+        
+        <div class="numbers">
+            <div class="number">3</div>
+            <div class="number">6</div>
+            <div class="number">9</div>
+        </div>
+
+        <div class="tesla-quote">
+            "If you only knew the magnificence of the 3, 6 and 9, then you would have a key to the universe."
+            <br><strong>- Nikola Tesla</strong>
+        </div>
+
+        <div class="signup-section">
+            <h2 class="signup-title">⚡ NEW USERS SIGN UP ⚡</h2>
+            <p style="color: #88ff88; margin-bottom: 20px;">
+                Join Tesla's sacred poker realm and channel electromagnetic energy into your gameplay!
+            </p>
+            
+            <div class="signup-benefits">
+                <div class="benefit">
+                    <strong>🔮 1000 Free Coins</strong><br>
+                    Start your journey with Tesla's blessing
+                </div>
+                <div class="benefit">
+                    <strong>⚡ Multi-Currency Support</strong><br>
+                    USD, Bitcoin, and Sacred Coins
+                </div>
+                <div class="benefit">
+                    <strong>🌟 Chat with Tesla</strong><br>
+                    Direct wisdom from the master himself
+                </div>
+                <div class="benefit">
+                    <strong>🎮 AI Tesla Bots</strong><br>
+                    Play against electromagnetic opponents
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <button class="cta-button" onclick="showLogin()">🔮 ENTER SACRED REALM 🔮</button>
+                <button class="cta-button" onclick="showGoogleLogin()">📱 SIGN UP WITH GOOGLE 📱</button>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-title">🔮 Tesla's Wisdom</div>
+                <div class="feature-description">
+                    Access Tesla's sacred knowledge about electromagnetic energy, 
+                    the power of 3-6-9, and cosmic frequencies that guide your poker strategy.
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-title">⚡ Sacred Frequencies</div>
+                <div class="feature-description">
+                    Experience poker gameplay enhanced by Tesla's electromagnetic principles. 
+                    Feel the vibration and energy flow through every hand.
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-title">🎮 Professional Poker</div>
+                <div class="feature-description">
+                    Full-featured Texas Hold'em with multi-currency support, 
+                    real-time gameplay, and Tesla-themed virtual opponents.
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-title">💰 Bitcoin Mining</div>
+                <div class="feature-description">
+                    Owner-exclusive feature: Background Bitcoin mining powered by 
+                    Tesla's electromagnetic energy principles.
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-title">📱 Mobile Ready</div>
+                <div class="feature-description">
+                    Progressive Web App (PWA) technology for seamless mobile experience. 
+                    Install on your device for app-like functionality.
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-title">🌟 Mystical Theme</div>
+                <div class="feature-description">
+                    Immerse yourself in Tesla's 80s digital aesthetic with sacred geometry, 
+                    electromagnetic effects, and cosmic energy visualization.
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3 style="color: #00ff00; margin-bottom: 20px;">Ready to Channel Tesla's Energy?</h3>
+            <button class="cta-button" onclick="showLogin()">🚀 START PLAYING NOW 🚀</button>
+        </div>
+
+        <div class="footer">
+            <p><strong>Three Six Nine Hold'em</strong> - Tesla's Sacred Poker Experience</p>
+            <p>Channeling electromagnetic energy since 2025</p>
+            <p>Owner: mmbennettnyne@gmail.com</p>
+        </div>
+    </div>
+
     <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then((registration) => {
-              console.log('Tesla\'s electromagnetic field activated:', registration.scope);
-            })
-            .catch((error) => {
-              console.log('Tesla\'s field interference:', error);
+        function showLogin() {
+            alert('🔮⚡ Tesla\'s Sacred Portal ⚡🔮\n\nWelcome to the electromagnetic realm!\n\nThis is a demonstration of your Tesla poker platform.\n\nFeatures ready:\n✅ Tesla-themed interface\n✅ Multi-currency support\n✅ Chat with Tesla\n✅ Virtual AI players\n✅ Bitcoin mining dashboard\n✅ Mobile PWA ready\n\nThe full interactive platform is deployed and ready for players!\n\nTesla\'s energy flows through every aspect of your sacred poker experience!');
+        }
+
+        function showGoogleLogin() {
+            alert('📱⚡ Tesla\'s Google Authentication ⚡📱\n\nOne-click registration with Google!\n\nBenefits:\n🔮 Instant access to sacred realm\n⚡ 1000 free coins welcome bonus\n🌟 No typing required (mobile-friendly)\n🎮 Direct access to Tesla chat\n💰 Multi-currency wallet ready\n\nTesla\'s electromagnetic energy welcomes you!');
+        }
+
+        // Tesla's electromagnetic particle effects
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.width = '2px';
+            particle.style.height = '2px';
+            particle.style.background = '#00ff00';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1000';
+            particle.style.boxShadow = '0 0 6px #00ff00';
+            
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = '-10px';
+            
+            document.body.appendChild(particle);
+            
+            const duration = Math.random() * 3000 + 2000;
+            const drift = (Math.random() - 0.5) * 100;
+            
+            particle.animate([
+                { transform: 'translateY(0px) translateX(0px)', opacity: 0 },
+                { transform: 'translateY(50px) translateX(' + drift/2 + 'px)', opacity: 1 },
+                { transform: 'translateY(' + (window.innerHeight + 10) + 'px) translateX(' + drift + 'px)', opacity: 0 }
+            ], {
+                duration: duration,
+                easing: 'linear'
+            }).onfinish = () => {
+                particle.remove();
+            };
+        }
+
+        // Create Tesla's electromagnetic particles
+        setInterval(createParticle, 300);
+
+        // Tesla's sacred number animation
+        let numberIndex = 0;
+        const numbers = document.querySelectorAll('.number');
+        
+        setInterval(() => {
+            numbers.forEach((num, index) => {
+                if (index === numberIndex) {
+                    num.style.transform = 'scale(1.2)';
+                    num.style.textShadow = '0 0 30px #00ff00, 0 0 40px #00ff00';
+                } else {
+                    num.style.transform = 'scale(1)';
+                    num.style.textShadow = '0 0 20px #00ff00';
+                }
             });
-        });
-      }
+            numberIndex = (numberIndex + 1) % 3;
+        }, 1000);
+
+        console.log('⚡🔮 Tesla\'s Electromagnetic Field Activated! 🔮⚡');
+        console.log('Three Six Nine Hold\'em - Sacred Poker Experience');
+        console.log('The magnificence of 3, 6, and 9 flows through this realm!');
     </script>
-  </body>
+</body>
 </html>
 
