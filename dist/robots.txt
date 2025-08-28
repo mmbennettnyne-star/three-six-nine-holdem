@@ -1,0 +1,21 @@
+# Tesla's Sacred Poker Realm - Three Six Nine Hold'em
+# Electromagnetic Energy Guidance for Web Crawlers
+
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /icons/
+Disallow: /api/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Tesla's Sacred Frequencies
+# Crawl-delay: 3 seconds (sacred number)
+Crawl-delay: 3
+
+# Sitemap Location
+Sitemap: https://mmbennettnyne-star.github.io/three-six-nine-holdem/sitemap.xml
+
+# Tesla's Electromagnetic Blessing
+# "If you only knew the magnificence of the 3, 6 and 9, then you would have a key to the universe."
+
