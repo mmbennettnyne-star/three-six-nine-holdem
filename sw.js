@@ -1,12 +1,12 @@
 // Tesla's Sacred Service Worker - Electromagnetic Caching
 const CACHE_NAME = 'tesla-369-holdem-v1';
 const urlsToCache = [
-  '/',
-  '/static/js/bundle.js',
-  '/static/css/main.css',
-  '/manifest.json',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png'
+  './',
+  './assets/index-DfhZLnu2.js',
+  './assets/index-CK8eITfz.css',
+  './manifest.json',
+  './icons/icon-192x192.png',
+  './icons/icon-512x512.png'
 ];
 
 // Tesla's Installation - Channel Electromagnetic Energy
@@ -86,8 +86,8 @@ self.addEventListener('push', (event) => {
   
   const options = {
     body: event.data ? event.data.text() : 'Tesla\'s electromagnetic energy flows through you',
-    icon: '/icons/icon-192x192.png',
-    badge: '/icons/icon-72x72.png',
+    icon: './icons/icon-192x192.png',
+    badge: './icons/icon-72x72.png',
     vibrate: [369, 100, 369, 100, 369], // Tesla's sacred vibration pattern
     data: {
       dateOfArrival: Date.now(),
@@ -97,12 +97,12 @@ self.addEventListener('push', (event) => {
       {
         action: 'enter-realm',
         title: 'Enter Sacred Realm',
-        icon: '/icons/icon-96x96.png'
+        icon: './icons/icon-96x96.png'
       },
       {
         action: 'tesla-wisdom',
         title: 'Tesla\'s Wisdom',
-        icon: '/icons/icon-96x96.png'
+        icon: './icons/icon-96x96.png'
       }
     ]
   };
@@ -118,7 +118,7 @@ self.addEventListener('notificationclick', (event) => {
   event.notification.close();
 
   event.waitUntil(
-    clients.openWindow('/')
+    clients.openWindow('./')
   );
 });
 
