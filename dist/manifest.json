@@ -1,0 +1,114 @@
+{
+  "name": "Three Six Nine Hold'em - Tesla's Sacred Poker",
+  "short_name": "369 Hold'em",
+  "description": "Tesla's mystical poker experience with electromagnetic energy and sacred 3-6-9 frequencies",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00ff00",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Tesla's Sacred Poker Experience - Desktop"
+    },
+    {
+      "src": "/screenshots/mobile-1.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Tesla's Sacred Poker Experience - Mobile"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Enter Sacred Realm",
+      "short_name": "Play",
+      "description": "Start playing Tesla's mystical poker",
+      "url": "/?action=play",
+      "icons": [
+        {
+          "src": "/icons/shortcut-play.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Tesla's Wisdom",
+      "short_name": "Wisdom",
+      "description": "Learn about Tesla's sacred teachings",
+      "url": "/?action=wisdom",
+      "icons": [
+        {
+          "src": "/icons/shortcut-wisdom.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}
+
