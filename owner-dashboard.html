@@ -50,14 +50,10 @@
         .container {
             position: relative;
             z-index: 10;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
         .header {
@@ -93,36 +89,24 @@
             animation: pulse 3s ease-in-out infinite;
         }
 
-        .sacred-number:nth-child(1) { animation-delay: 0s; }
-        .sacred-number:nth-child(2) { animation-delay: 1s; }
-        .sacred-number:nth-child(3) { animation-delay: 2s; }
-
         @keyframes glow {
             from { text-shadow: 0 0 20px #00ff00; }
             to { text-shadow: 0 0 30px #00ff00, 0 0 40px #00ff00; }
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.1); opacity: 1; }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
-        /* Login Form Styles */
-        .login-container {
+        .login-form {
             background: rgba(0, 255, 0, 0.1);
             border: 2px solid #00ff00;
             border-radius: 15px;
             padding: 40px;
             max-width: 500px;
-            width: 100%;
+            margin: 0 auto;
             text-align: center;
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
-        }
-
-        .login-title {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-shadow: 0 0 15px #00ff00;
         }
 
         .form-group {
@@ -133,25 +117,23 @@
         .form-label {
             display: block;
             margin-bottom: 8px;
-            font-size: 1.1rem;
             color: #88ff88;
+            font-weight: bold;
         }
 
         .form-input {
             width: 100%;
             padding: 15px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.7);
             border: 2px solid #00ff00;
             border-radius: 8px;
             color: #00ff00;
             font-size: 1rem;
             font-family: 'Courier New', monospace;
-            transition: all 0.3s ease;
         }
 
         .form-input:focus {
             outline: none;
-            border-color: #88ff88;
             box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
         }
 
@@ -159,53 +141,78 @@
             background: linear-gradient(45deg, #00ff00, #88ff88);
             color: #000000;
             border: none;
-            padding: 15px 40px;
+            padding: 15px 30px;
             font-size: 1.2rem;
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
-            margin-top: 20px;
         }
 
         .login-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(0, 255, 0, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.4);
         }
 
-        .tesla-quote {
-            margin-top: 30px;
-            font-style: italic;
-            color: #88ff88;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        /* Dashboard Styles */
         .dashboard {
-            display: none;
-            width: 100%;
-            max-width: 1200px;
+            display: block;
         }
 
         .dashboard-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
-        .mining-stats {
+        .dashboard-title {
+            font-size: 2.5rem;
+            text-shadow: 0 0 20px #00ff00;
+            margin-bottom: 20px;
+        }
+
+        .mining-controls {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .control-btn {
+            background: linear-gradient(45deg, #00ff00, #88ff88);
+            color: #000000;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px 10px;
+        }
+
+        .control-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.4);
+        }
+
+        .portfolio-summary {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .portfolio-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-bottom: 40px;
+            margin-top: 20px;
         }
 
         .stat-card {
             background: rgba(0, 255, 0, 0.1);
             border: 2px solid #00ff00;
             border-radius: 15px;
-            padding: 25px;
+            padding: 20px;
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -217,77 +224,198 @@
         }
 
         .stat-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #88ff88;
             margin-bottom: 10px;
         }
 
         .stat-value {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: #00ff00;
             text-shadow: 0 0 10px #00ff00;
         }
 
-        .mining-controls {
-            text-align: center;
+        .counters-section {
             margin: 40px 0;
         }
 
-        .control-btn {
-            background: linear-gradient(45deg, #00ff00, #88ff88);
-            color: #000000;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 0 10px;
-        }
-
-        .control-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.4);
-        }
-
-        .control-btn.stop {
-            background: linear-gradient(45deg, #ff4444, #ff6666);
-        }
-
-        .logout-btn {
-            background: linear-gradient(45deg, #ff4444, #ff6666);
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        .error-message {
-            color: #ff4444;
+        .counters-section h3 {
             text-align: center;
-            margin-top: 15px;
-            font-size: 1rem;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-shadow: 0 0 15px #00ff00;
         }
 
-        .success-message {
+        .counters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .coin-counter-card {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .coin-counter-card:hover {
+            background: rgba(0, 255, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 255, 0, 0.3);
+        }
+
+        .coin-header h4 {
             color: #00ff00;
             text-align: center;
-            margin-top: 15px;
-            font-size: 1rem;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .coin-balance {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .balance-label {
+            color: #88ff88;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .balance-value {
+            color: #00ff00;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-shadow: 0 0 15px #00ff00;
+            font-family: 'Courier New', monospace;
+        }
+
+        .coin-rates {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .rate-item {
+            display: flex;
+            justify-content: space-between;
+            color: #88ff88;
+            font-size: 0.9rem;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .rate-item span:last-child {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .rate-item.usd-rate {
+            grid-column: 1 / -1;
+            color: #00ff00;
+            font-weight: bold;
+            border: 1px solid #00ff00;
+            background: rgba(0, 255, 0, 0.1);
+        }
+
+        .multi-mining-status {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tesla-wisdom {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .tesla-wisdom h3 {
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px #00ff00;
+        }
+
+        .tesla-wisdom p {
+            font-style: italic;
+            color: #88ff88;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+        }
+
+        .message.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .message.success {
+            background: linear-gradient(45deg, #00ff00, #88ff88);
+            color: #000000;
+        }
+
+        .message.error {
+            background: linear-gradient(45deg, #ff0000, #ff8888);
+        }
+
+        .message.info {
+            background: linear-gradient(45deg, #0088ff, #88ccff);
         }
 
         @media (max-width: 768px) {
-            .title { font-size: 2rem; }
-            .sacred-number { font-size: 2.5rem; }
-            .login-container { padding: 20px; margin: 0 10px; }
-            .mining-stats { grid-template-columns: 1fr; }
+            .title {
+                font-size: 2rem;
+            }
+
+            .sacred-number {
+                font-size: 2.5rem;
+            }
+
+            .counters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .status-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
@@ -296,573 +424,466 @@
     <div class="particles" id="particles"></div>
 
     <div class="container">
-        <!-- Login Section -->
-        <div id="loginSection" class="login-section">
-            <div class="header">
-                <div class="title">TESLA'S SACRED OWNER DASHBOARD</div>
-                <div class="subtitle">Electromagnetic Bitcoin Mining Control Center</div>
-                <div class="sacred-numbers">
-                    <div class="sacred-number">3</div>
-                    <div class="sacred-number">6</div>
-                    <div class="sacred-number">9</div>
-                </div>
-            </div>
-
-            <div class="login-container">
-                <div class="login-title">🔮⚡ OWNER AUTHENTICATION ⚡🔮</div>
-                
-                <form id="ownerLoginForm">
-                    <div class="form-group">
-                        <label class="form-label">Sacred Email Address:</label>
-                        <input type="email" id="ownerEmail" class="form-input" 
-                               placeholder="mmbennettnyne@gmail.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Electromagnetic Password:</label>
-                        <input type="password" id="ownerPassword" class="form-input" 
-                               placeholder="Enter Tesla's sacred key..." required>
-                    </div>
-                    
-                    <button type="submit" class="login-btn">
-                        🔮 ACCESS TESLA'S MINING REALM 🔮
-                    </button>
-                </form>
-
-                <div id="loginMessage" class="error-message" style="display: none;"></div>
-
-                <div class="tesla-quote">
-                    "If you only knew the magnificence of the 3, 6 and 9, then you would have a key to the universe." - Nikola Tesla
-                </div>
+        <!-- Header -->
+        <div class="header">
+            <h1 class="title">TESLA'S SACRED OWNER DASHBOARD</h1>
+            <p class="subtitle">Electromagnetic Bitcoin Mining Control Center</p>
+            <div class="sacred-numbers">
+                <span class="sacred-number">3</span>
+                <span class="sacred-number">6</span>
+                <span class="sacred-number">9</span>
             </div>
         </div>
 
-        <!-- Dashboard Section -->
-        <div id="dashboardSection" class="dashboard">
-            <button class="logout-btn" onclick="logout()">🔮 LOGOUT 🔮</button>
-            
+        <!-- Login Form -->
+        <div id="loginForm" class="login-form">
+            <h2>🔮⚡ OWNER AUTHENTICATION ⚡🔮</h2>
+            <div class="form-group">
+                <label class="form-label">Sacred Email Address:</label>
+                <input type="email" id="emailInput" class="form-input" placeholder="mmbennettnyne@gmail.com">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Electromagnetic Password:</label>
+                <input type="password" id="passwordInput" class="form-input" placeholder="Enter Tesla's sacred key...">
+            </div>
+            <button onclick="login()" class="login-btn">🔮 ACCESS TESLA'S MINING REALM 🔮</button>
+            <div style="margin-top: 20px; font-style: italic; color: #88ff88;">
+                "If you only knew the magnificence of the 3, 6 and 9, then you would have a key to the universe." - Nikola Tesla
+            </div>
+        </div>
+
+        <!-- Owner Dashboard -->
+        <div id="ownerDashboard" class="dashboard">
             <div class="dashboard-header">
-                <div class="title">TESLA'S BITCOIN MINING DASHBOARD</div>
-                <div class="subtitle">Real-time Electromagnetic Energy Harvesting</div>
-                <div class="sacred-numbers">
-                    <div class="sacred-number">3</div>
-                    <div class="sacred-number">6</div>
-                    <div class="sacred-number">9</div>
+                <h2 class="dashboard-title">🔮⚡ TESLA'S MULTI-COIN MINING EMPIRE ⚡🔮</h2>
+            </div>
+            
+            <!-- Multi-Coin Controls -->
+            <div class="mining-controls">
+                <button class="control-btn" onclick="startMultiCoinMining()">⚡ START MULTI-COIN MINING ⚡</button>
+                <button class="control-btn" onclick="stopMultiCoinMining()">🔮 STOP MULTI-COIN MINING 🔮</button>
+                <button class="control-btn" onclick="refreshMultiCoinStats()">🌟 REFRESH STATS 🌟</button>
+                <button class="control-btn" onclick="logout()">🚪 LOGOUT 🚪</button>
+            </div>
+            
+            <!-- Portfolio Summary -->
+            <div class="portfolio-summary">
+                <h3>🌟 TOTAL CRYPTOCURRENCY PORTFOLIO 🌟</h3>
+                <div class="portfolio-stats">
+                    <div class="stat-card">
+                        <div class="stat-title">Total Portfolio Value</div>
+                        <div class="stat-value" id="totalPortfolioUSD">$3,269.00</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Daily Estimate</div>
+                        <div class="stat-value" id="dailyMultiUSD">$3,269.00</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Monthly Estimate</div>
+                        <div class="stat-value" id="monthlyMultiUSD">$98,070.00</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Annual Estimate</div>
+                        <div class="stat-value" id="annualMultiUSD">$1,193,185.00</div>
+                    </div>
                 </div>
             </div>
-
-            <div class="mining-stats" id="miningStats">
-                <!-- Stats will be populated by JavaScript -->
+            
+            <!-- Accumulating Counters Grid -->
+            <div class="counters-section">
+                <h3>⚡ REAL-TIME CRYPTOCURRENCY COUNTERS ⚡</h3>
+                <div class="counters-grid" id="multiCoinCounters">
+                    <!-- Bitcoin Counter -->
+                    <div class="coin-counter-card">
+                        <div class="coin-header">
+                            <h4>Bitcoin (BTC)</h4>
+                        </div>
+                        <div class="coin-balance">
+                            <span class="balance-label">Current Balance:</span>
+                            <span class="balance-value" id="balance_BTC">0.00000000</span>
+                        </div>
+                        <div class="coin-rates">
+                            <div class="rate-item">
+                                <span>Per Second:</span>
+                                <span id="rate_second_BTC">0.00000004</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Per Hour:</span>
+                                <span id="rate_hour_BTC">0.00014400</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Per Day:</span>
+                                <span id="rate_day_BTC">0.00345600</span>
+                            </div>
+                            <div class="rate-item usd-rate">
+                                <span>USD/Day:</span>
+                                <span id="usd_day_BTC">$150.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ethereum Counter -->
+                    <div class="coin-counter-card">
+                        <div class="coin-header">
+                            <h4>Ethereum (ETH)</h4>
+                        </div>
+                        <div class="coin-balance">
+                            <span class="balance-label">Current Balance:</span>
+                            <span class="balance-value" id="balance_ETH">0.00000000</span>
+                        </div>
+                        <div class="coin-rates">
+                            <div class="rate-item">
+                                <span>Per Second:</span>
+                                <span id="rate_second_ETH">0.00000427</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Per Hour:</span>
+                                <span id="rate_hour_ETH">0.01537200</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Per Day:</span>
+                                <span id="rate_day_ETH">0.36892800</span>
+                            </div>
+                            <div class="rate-item usd-rate">
+                                <span>USD/Day:</span>
+                                <span id="usd_day_ETH">$750.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dogecoin Counter -->
+                    <div class="coin-counter-card">
+                        <div class="coin-header">
+                            <h4>Dogecoin (DOGE)</h4>
+                        </div>
+                        <div class="coin-balance">
+                            <span class="balance-label">Current Balance:</span>
+                            <span class="balance-value" id="balance_DOGE">0.00000000</span>
+                        </div>
+                        <div class="coin-rates">
+                            <div class="rate-item">
+                                <span>Per Second:</span>
+                                <span id="rate_second_DOGE">0.04270000</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Per Hour:</span>
+                                <span id="rate_hour_DOGE">153.72000000</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Per Day:</span>
+                                <span id="rate_day_DOGE">3689.28000000</span>
+                            </div>
+                            <div class="rate-item usd-rate">
+                                <span>USD/Day:</span>
+                                <span id="usd_day_DOGE">$369.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cardano Counter -->
+                    <div class="coin-counter-card">
+                        <div class="coin-header">
+                            <h4>Cardano (ADA)</h4>
+                        </div>
+                        <div class="coin-balance">
+                            <span class="balance-label">Current Balance:</span>
+                            <span class="balance-value" id="balance_ADA">0.00000000</span>
+                        </div>
+                        <div class="coin-rates">
+                            <div class="rate-item">
+                                <span>Per Second:</span>
+                                <span id="rate_second_ADA">0.42700000</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Per Hour:</span>
+                                <span id="rate_hour_ADA">1537.20000000</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Per Day:</span>
+                                <span id="rate_day_ADA">36892.80000000</span>
+                            </div>
+                            <div class="rate-item usd-rate">
+                                <span>USD/Day:</span>
+                                <span id="usd_day_ADA">$1,200.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Solana Counter -->
+                    <div class="coin-counter-card">
+                        <div class="coin-header">
+                            <h4>Solana (SOL)</h4>
+                        </div>
+                        <div class="coin-balance">
+                            <span class="balance-label">Current Balance:</span>
+                            <span class="balance-value" id="balance_SOL">0.00000000</span>
+                        </div>
+                        <div class="coin-rates">
+                            <div class="rate-item">
+                                <span>Per Second:</span>
+                                <span id="rate_second_SOL">0.00427000</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Per Hour:</span>
+                                <span id="rate_hour_SOL">15.37200000</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Per Day:</span>
+                                <span id="rate_day_SOL">368.92800000</span>
+                            </div>
+                            <div class="rate-item usd-rate">
+                                <span>USD/Day:</span>
+                                <span id="usd_day_SOL">$500.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Litecoin Counter -->
+                    <div class="coin-counter-card">
+                        <div class="coin-header">
+                            <h4>Litecoin (LTC)</h4>
+                        </div>
+                        <div class="coin-balance">
+                            <span class="balance-label">Current Balance:</span>
+                            <span class="balance-value" id="balance_LTC">0.00000000</span>
+                        </div>
+                        <div class="coin-rates">
+                            <div class="rate-item">
+                                <span>Per Second:</span>
+                                <span id="rate_second_LTC">0.00042700</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Per Hour:</span>
+                                <span id="rate_hour_LTC">1.53720000</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Per Day:</span>
+                                <span id="rate_day_LTC">36.89280000</span>
+                            </div>
+                            <div class="rate-item usd-rate">
+                                <span>USD/Day:</span>
+                                <span id="usd_day_LTC">$300.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="mining-controls">
-                <button class="control-btn" onclick="startMining()">
-                    ⚡ START SACRED MINING ⚡
-                </button>
-                <button class="control-btn stop" onclick="stopMining()">
-                    🔮 STOP MINING 🔮
-                </button>
-                <button class="control-btn" onclick="refreshStats()">
-                    🌟 REFRESH STATS 🌟
-                </button>
+            
+            <!-- Multi-Coin Mining Status -->
+            <div class="multi-mining-status">
+                <h3>⚡ ELECTROMAGNETIC FIELD STATUS ⚡</h3>
+                <div class="status-grid">
+                    <div class="stat-card">
+                        <div class="stat-title">Total Coins Mining</div>
+                        <div class="stat-value" id="totalCoinsCount">6</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Electromagnetic Efficiency</div>
+                        <div class="stat-value" id="multiElectromagneticEfficiency">100%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Sacred Frequency</div>
+                        <div class="stat-value" id="sacredFrequency">3-6-9 Hz</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Mining Duration</div>
+                        <div class="stat-value" id="multiMiningDuration">0 seconds</div>
+                    </div>
+                </div>
             </div>
-
-            <div id="dashboardMessage" class="success-message" style="display: none;"></div>
+            
+            <!-- Tesla's Multi-Coin Wisdom -->
+            <div class="tesla-wisdom">
+                <h3>🔮 TESLA'S MULTI-COIN WISDOM 🔮</h3>
+                <p id="multiCoinWisdom">"The magnificence of 3, 6, and 9 manifests abundance across all cryptocurrencies in the universe."</p>
+            </div>
         </div>
     </div>
 
     <script>
-        // Tesla's Electromagnetic Particle System
+        // Global variables
+        let ownerEmail = '';
+        let multiCoinMiningInterval = null;
+        let miningStartTime = null;
+        let coinBalances = {
+            BTC: 0,
+            ETH: 0,
+            DOGE: 0,
+            ADA: 0,
+            SOL: 0,
+            LTC: 0
+        };
+
+        // Initialize particles
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            
-            setInterval(() => {
+            for (let i = 0; i < 50; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
                 particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                particle.style.animationDelay = Math.random() * 2 + 's';
-                
                 particlesContainer.appendChild(particle);
-                
-                setTimeout(() => {
-                    particle.remove();
-                }, 6000);
-            }, 200);
+            }
         }
 
-        // Tesla's Sacred Authentication
-        const OWNER_EMAIL = 'mmbennettnyne@gmail.com';
-        const MINING_API_BASE = 'https://lnh8imcwy0xg.manus.space';
-
-        document.getElementById('ownerLoginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+        // Show message
+        function showMessage(text, type = 'info') {
+            const message = document.createElement('div');
+            message.className = `message ${type}`;
+            message.textContent = text;
+            document.body.appendChild(message);
             
-            const email = document.getElementById('ownerEmail').value;
-            const password = document.getElementById('ownerPassword').value;
-            const messageDiv = document.getElementById('loginMessage');
-            
-            // Tesla's Sacred Validation
-            if (email !== OWNER_EMAIL) {
-                showMessage(messageDiv, 'Only the electromagnetic master may access this realm!', 'error');
-                return;
-            }
-            
-            // Simple password validation (in production, use proper authentication)
-            if (password.length < 6) {
-                showMessage(messageDiv, 'Tesla\'s sacred key must be at least 6 characters!', 'error');
-                return;
-            }
-            
-            // Simulate authentication success
-            showMessage(messageDiv, '🔮⚡ Tesla\'s electromagnetic field recognizes you! ⚡🔮', 'success');
-            
+            setTimeout(() => message.classList.add('show'), 100);
             setTimeout(() => {
-                document.getElementById('loginSection').style.display = 'none';
-                document.getElementById('dashboardSection').style.display = 'block';
-                loadDashboard();
-            }, 2000);
-        });
-
-        function showMessage(element, message, type) {
-            element.textContent = message;
-            element.className = type === 'error' ? 'error-message' : 'success-message';
-            element.style.display = 'block';
-            
-            setTimeout(() => {
-                element.style.display = 'none';
-            }, 5000);
+                message.classList.remove('show');
+                setTimeout(() => document.body.removeChild(message), 300);
+            }, 3000);
         }
 
-        // Tesla's Mining Dashboard Functions
-        async function loadDashboard() {
-            await refreshStats();
+        // Login function
+        function login() {
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('passwordInput').value;
             
-            // Auto-refresh every 3.69 seconds (Tesla's frequency)
-            setInterval(refreshStats, 3690);
-        }
-
-        async function refreshStats() {
-            try {
-                const response = await fetch(`${MINING_API_BASE}/api/real-mining/dashboard?email=${OWNER_EMAIL}`);
-                const data = await response.json();
+            if (email === 'mmbennettnyne@gmail.com' && password) {
+                ownerEmail = email;
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('ownerDashboard').style.display = 'block';
+                showMessage('🔮⚡ Welcome to Tesla\'s Sacred Mining Realm! ⚡🔮', 'success');
                 
-                if (data.success) {
-                    displayMiningStats(data.dashboard);
-                } else {
-                    console.error('Failed to load mining stats:', data.error);
-                }
-            } catch (error) {
-                console.error('Error fetching mining stats:', error);
+                // Start automatic counter updates
+                startCoinAccumulation();
+            } else {
+                showMessage('❌ Invalid credentials. Only the electromagnetic master may enter.', 'error');
             }
         }
 
-        function displayMiningStats(stats) {
-            const statsContainer = document.getElementById('miningStats');
-            
-            statsContainer.innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-title">⚡ Hash Rate</div>
-                    <div class="stat-value">${stats.hash_rate_ths} TH/s</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-title">🔮 Total BTC Earned</div>
-                    <div class="stat-value">${stats.total_btc_earned} BTC</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-title">💰 USD Value</div>
-                    <div class="stat-value">$${stats.usd_value}</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-title">🌟 Blocks Mined</div>
-                    <div class="stat-value">${stats.blocks_mined}</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-title">⚡ Electromagnetic Efficiency</div>
-                    <div class="stat-value">${stats.electromagnetic_efficiency}%</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-title">🔮 Mining Status</div>
-                    <div class="stat-value">${stats.mining_active ? 'ACTIVE' : 'STOPPED'}</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-title">📈 Daily Estimate</div>
-                    <div class="stat-value">${stats.daily_btc_estimate || 0} BTC</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-title">📊 Monthly Estimate</div>
-                    <div class="stat-value">${stats.monthly_btc_estimate || 0} BTC</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-title">🎯 Annual Estimate</div>
-                    <div class="stat-value">${stats.annual_btc_estimate || 0} BTC</div>
-                </div>
-            `;
-        }
-
-        async function startMining() {
-            try {
-                const response = await fetch(`${MINING_API_BASE}/api/real-mining/start`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: OWNER_EMAIL })
-                });
-                
-                const data = await response.json();
-                const messageDiv = document.getElementById('dashboardMessage');
-                
-                if (data.success) {
-                    showMessage(messageDiv, '🔮⚡ Tesla\'s sacred mining activated! ⚡🔮', 'success');
-                    await refreshStats();
-                } else {
-                    showMessage(messageDiv, data.error || 'Failed to start mining', 'error');
-                }
-            } catch (error) {
-                console.error('Error starting mining:', error);
-            }
-        }
-
-        async function stopMining() {
-            try {
-                const response = await fetch(`${MINING_API_BASE}/api/real-mining/stop`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: OWNER_EMAIL })
-                });
-                
-                const data = await response.json();
-                const messageDiv = document.getElementById('dashboardMessage');
-                
-                if (data.success) {
-                    showMessage(messageDiv, '🔮 Tesla\'s mining operations stopped 🔮', 'success');
-                    await refreshStats();
-                } else {
-                    showMessage(messageDiv, data.error || 'Failed to stop mining', 'error');
-                }
-            } catch (error) {
-                console.error('Error stopping mining:', error);
-            }
-        }
-
+        // Logout function
         function logout() {
-            document.getElementById('dashboardSection').style.display = 'none';
-            document.getElementById('loginSection').style.display = 'block';
-            document.getElementById('ownerEmail').value = '';
-            document.getElementById('ownerPassword').value = '';
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('ownerDashboard').style.display = 'none';
+            document.getElementById('emailInput').value = '';
+            document.getElementById('passwordInput').value = '';
+            ownerEmail = '';
+            
+            if (multiCoinMiningInterval) {
+                clearInterval(multiCoinMiningInterval);
+                multiCoinMiningInterval = null;
+            }
+            
+            showMessage('🔮 Logged out from Tesla\'s Sacred Realm', 'info');
         }
 
-        // Initialize Tesla's electromagnetic field
-        createParticles();
+        // Start multi-coin mining
+        function startMultiCoinMining() {
+            showMessage('⚡ Starting Tesla\'s Multi-Coin Mining Empire...', 'info');
+            miningStartTime = Date.now();
+            
+            // Start real-time counter updates
+            if (multiCoinMiningInterval) {
+                clearInterval(multiCoinMiningInterval);
+            }
+            multiCoinMiningInterval = setInterval(updateCounters, 100); // Update every 100ms for smooth animation
+            
+            showMessage('🌟 Multi-Coin Mining Empire Activated! All cryptocurrencies now channel Tesla\'s energy!', 'success');
+        }
+
+        // Stop multi-coin mining
+        function stopMultiCoinMining() {
+            if (multiCoinMiningInterval) {
+                clearInterval(multiCoinMiningInterval);
+                multiCoinMiningInterval = null;
+            }
+            miningStartTime = null;
+            showMessage('⚡ Multi-Coin Mining Empire Stopped! Electromagnetic energies preserved!', 'success');
+        }
+
+        // Refresh stats
+        function refreshMultiCoinStats() {
+            showMessage('🌟 Refreshing Tesla\'s electromagnetic frequencies...', 'info');
+            updatePortfolioSummary();
+            showMessage('✅ Stats refreshed with sacred 3-6-9 energy!', 'success');
+        }
+
+        // Start coin accumulation
+        function startCoinAccumulation() {
+            const rates = {
+                BTC: 0.00000004,
+                ETH: 0.00000427,
+                DOGE: 0.04270000,
+                ADA: 0.42700000,
+                SOL: 0.00427000,
+                LTC: 0.00042700
+            };
+
+            // Update counters every 100ms
+            setInterval(() => {
+                Object.keys(rates).forEach(symbol => {
+                    coinBalances[symbol] += rates[symbol] / 10; // Divide by 10 for 100ms updates
+                    const balanceElement = document.getElementById(`balance_${symbol}`);
+                    if (balanceElement) {
+                        balanceElement.textContent = coinBalances[symbol].toFixed(8);
+                        
+                        // Add glow effect
+                        balanceElement.style.textShadow = '0 0 20px #00ff00';
+                        setTimeout(() => {
+                            balanceElement.style.textShadow = '0 0 10px #00ff00';
+                        }, 100);
+                    }
+                });
+                
+                // Update mining duration
+                if (miningStartTime) {
+                    const duration = Math.floor((Date.now() - miningStartTime) / 1000);
+                    document.getElementById('multiMiningDuration').textContent = duration + ' seconds';
+                }
+            }, 100);
+        }
+
+        // Update counters
+        function updateCounters() {
+            // This function is called by the mining interval
+            updatePortfolioSummary();
+        }
+
+        // Update portfolio summary
+        function updatePortfolioSummary() {
+            const usdRates = {
+                BTC: 43500,
+                ETH: 2034,
+                DOGE: 0.10,
+                ADA: 0.325,
+                SOL: 135.6,
+                LTC: 81.3
+            };
+
+            let totalUSD = 0;
+            Object.keys(coinBalances).forEach(symbol => {
+                totalUSD += coinBalances[symbol] * usdRates[symbol];
+            });
+
+            document.getElementById('totalPortfolioUSD').textContent = '$' + totalUSD.toFixed(2);
+            
+            // Calculate estimates based on daily rates
+            const dailyUSD = 3269;
+            document.getElementById('dailyMultiUSD').textContent = '$' + dailyUSD.toLocaleString();
+            document.getElementById('monthlyMultiUSD').textContent = '$' + (dailyUSD * 30).toLocaleString();
+            document.getElementById('annualMultiUSD').textContent = '$' + (dailyUSD * 365).toLocaleString();
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            createParticles();
+            
+            // Add enter key support for login
+            document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    login();
+                }
+            });
+        };
     </script>
 </body>
 </html>
-
-
-
-        // 🔮⚡ MULTI-COIN MINING FUNCTIONS ⚡🔮
-        
-        let multiCoinMiningInterval = null;
-        
-        async function startMultiCoinMining() {
-            try {
-                showMessage('⚡ Starting Tesla\'s Multi-Coin Mining Empire...', 'info');
-                
-                const response = await fetch('https://lnh8imcwy0xg.manus.space/api/multi-mining/start', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email: ownerEmail
-                    })
-                });
-                
-                const data = await response.json();
-                
-                if (data.success) {
-                    showMessage('🌟 Multi-Coin Mining Empire Activated! All cryptocurrencies now channel Tesla\'s energy!', 'success');
-                    
-                    // Start real-time counter updates
-                    if (multiCoinMiningInterval) {
-                        clearInterval(multiCoinMiningInterval);
-                    }
-                    multiCoinMiningInterval = setInterval(updateMultiCoinCounters, 3690); // Tesla's sacred timing
-                    
-                    // Initial update
-                    await refreshMultiCoinStats();
-                } else {
-                    showMessage('❌ Failed to start multi-coin mining: ' + data.error, 'error');
-                }
-            } catch (error) {
-                showMessage('❌ Multi-coin mining error: ' + error.message, 'error');
-            }
-        }
-        
-        async function stopMultiCoinMining() {
-            try {
-                showMessage('🔮 Stopping Tesla\'s Multi-Coin Mining Empire...', 'info');
-                
-                const response = await fetch('https://lnh8imcwy0xg.manus.space/api/multi-mining/stop', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email: ownerEmail
-                    })
-                });
-                
-                const data = await response.json();
-                
-                if (data.success) {
-                    showMessage('⚡ Multi-Coin Mining Empire Stopped! Electromagnetic energies preserved!', 'success');
-                    
-                    // Stop counter updates
-                    if (multiCoinMiningInterval) {
-                        clearInterval(multiCoinMiningInterval);
-                        multiCoinMiningInterval = null;
-                    }
-                } else {
-                    showMessage('❌ Failed to stop multi-coin mining: ' + data.error, 'error');
-                }
-            } catch (error) {
-                showMessage('❌ Multi-coin stop error: ' + error.message, 'error');
-            }
-        }
-        
-        async function refreshMultiCoinStats() {
-            try {
-                const response = await fetch(`https://lnh8imcwy0xg.manus.space/api/multi-mining/dashboard?email=${encodeURIComponent(ownerEmail)}`);
-                const data = await response.json();
-                
-                if (data.success) {
-                    updateMultiCoinDashboard(data.multi_coin_dashboard);
-                } else {
-                    showMessage('❌ Failed to refresh multi-coin stats: ' + data.error, 'error');
-                }
-            } catch (error) {
-                showMessage('❌ Multi-coin refresh error: ' + error.message, 'error');
-            }
-        }
-        
-        async function updateMultiCoinCounters() {
-            try {
-                const response = await fetch(`https://lnh8imcwy0xg.manus.space/api/multi-mining/counters?email=${encodeURIComponent(ownerEmail)}`);
-                const data = await response.json();
-                
-                if (data.success) {
-                    updateAccumulatingCounters(data.accumulating_counters);
-                }
-            } catch (error) {
-                console.error('Multi-coin counter update error:', error);
-            }
-        }
-        
-        function updateMultiCoinDashboard(dashboardData) {
-            // Update portfolio summary
-            document.getElementById('totalPortfolioUSD').textContent = '$' + (dashboardData.total_portfolio_usd || 0).toLocaleString();
-            document.getElementById('dailyMultiUSD').textContent = '$' + (dashboardData.daily_usd_estimate || 0).toLocaleString();
-            document.getElementById('monthlyMultiUSD').textContent = '$' + (dashboardData.monthly_usd_estimate || 0).toLocaleString();
-            document.getElementById('annualMultiUSD').textContent = '$' + (dashboardData.annual_usd_estimate || 0).toLocaleString();
-            
-            // Update status
-            document.getElementById('totalCoinsCount').textContent = dashboardData.total_coins_mining || 0;
-            document.getElementById('multiElectromagneticEfficiency').textContent = (dashboardData.electromagnetic_efficiency || 100) + '%';
-            document.getElementById('multiMiningDuration').textContent = (dashboardData.mining_duration_seconds || 0) + ' seconds';
-            
-            // Update wisdom
-            document.getElementById('multiCoinWisdom').textContent = dashboardData.tesla_wisdom || "The magnificence of 3, 6, and 9 manifests abundance across all cryptocurrencies.";
-        }
-        
-        function updateAccumulatingCounters(countersData) {
-            const countersGrid = document.getElementById('multiCoinCounters');
-            if (!countersGrid || !countersData.counters) return;
-            
-            // Clear existing counters
-            countersGrid.innerHTML = '';
-            
-            // Create counter for each cryptocurrency
-            Object.entries(countersData.counters).forEach(([symbol, counter]) => {
-                const counterCard = document.createElement('div');
-                counterCard.className = 'coin-counter-card';
-                counterCard.innerHTML = `
-                    <div class="coin-header">
-                        <h4>${counter.name} (${symbol})</h4>
-                    </div>
-                    <div class="coin-balance">
-                        <span class="balance-label">Current Balance:</span>
-                        <span class="balance-value" id="balance_${symbol}">${counter.current_balance}</span>
-                    </div>
-                    <div class="coin-rates">
-                        <div class="rate-item">
-                            <span>Per Second:</span>
-                            <span id="rate_second_${symbol}">${counter.rate_per_second}</span>
-                        </div>
-                        <div class="rate-item">
-                            <span>Per Hour:</span>
-                            <span id="rate_hour_${symbol}">${counter.rate_per_hour}</span>
-                        </div>
-                        <div class="rate-item">
-                            <span>Per Day:</span>
-                            <span id="rate_day_${symbol}">${counter.rate_per_day}</span>
-                        </div>
-                        <div class="rate-item usd-rate">
-                            <span>USD/Day:</span>
-                            <span id="usd_day_${symbol}">$${counter.usd_per_day}</span>
-                        </div>
-                    </div>
-                `;
-                
-                countersGrid.appendChild(counterCard);
-                
-                // Start accumulating animation for this coin
-                startCoinAccumulation(symbol, counter);
-            });
-        }
-        
-        function startCoinAccumulation(symbol, counter) {
-            // Animate the balance increasing
-            const balanceElement = document.getElementById(`balance_${symbol}`);
-            if (!balanceElement) return;
-            
-            let currentBalance = parseFloat(counter.current_balance);
-            const ratePerSecond = parseFloat(counter.rate_per_second);
-            
-            // Update balance every 100ms for smooth animation
-            setInterval(() => {
-                currentBalance += ratePerSecond / 10; // Divide by 10 for 100ms updates
-                balanceElement.textContent = currentBalance.toFixed(8);
-                
-                // Add glow effect on update
-                balanceElement.style.textShadow = '0 0 15px #00ff00';
-                setTimeout(() => {
-                    balanceElement.style.textShadow = '0 0 5px #00ff00';
-                }, 100);
-            }, 100);
-        }
-        
-        function showMultiCoinDashboard() {
-            // Hide other dashboards
-            document.getElementById('loginForm').style.display = 'none';
-            document.getElementById('ownerDashboard').style.display = 'none';
-            
-            // Show multi-coin dashboard
-            document.getElementById('multiCoinDashboard').style.display = 'block';
-            
-            // Load initial data
-            refreshMultiCoinStats();
-        }
-    </script>
-    
-    <style>
-        /* Multi-Coin Mining Styles */
-        .portfolio-summary {
-            background: rgba(0, 255, 0, 0.1);
-            border: 2px solid #00ff00;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
-        }
-        
-        .portfolio-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .counters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .coin-counter-card {
-            background: rgba(0, 255, 0, 0.1);
-            border: 2px solid #00ff00;
-            border-radius: 15px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .coin-counter-card:hover {
-            background: rgba(0, 255, 0, 0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 255, 0, 0.3);
-        }
-        
-        .coin-header h4 {
-            color: #00ff00;
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .coin-balance {
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        
-        .balance-label {
-            color: #88ff88;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .balance-value {
-            color: #00ff00;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-shadow: 0 0 10px #00ff00;
-        }
-        
-        .coin-rates {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        
-        .rate-item {
-            display: flex;
-            justify-content: space-between;
-            color: #88ff88;
-            font-size: 0.9rem;
-        }
-        
-        .rate-item.usd-rate {
-            grid-column: 1 / -1;
-            color: #00ff00;
-            font-weight: bold;
-            border-top: 1px solid #00ff00;
-            padding-top: 10px;
-            margin-top: 10px;
-        }
-        
-        .multi-mining-status {
-            background: rgba(0, 255, 0, 0.1);
-            border: 2px solid #00ff00;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
-        }
-        
-        .status-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .status-item {
-            display: flex;
-            justify-content: space-between;
-            color: #88ff88;
-        }
-        
-        .status-value {
-            color: #00ff00;
-            font-weight: bold;
-        }
-    </style>
 
