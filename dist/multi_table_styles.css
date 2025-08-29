@@ -1,0 +1,444 @@
+/* Multi-Table Poker Room Styles */
+
+.multi-table-room {
+    padding: 20px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    min-height: 100vh;
+    color: #00ff88;
+    font-family: 'Courier New', monospace;
+}
+
+.room-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #00ff88;
+    padding-bottom: 20px;
+}
+
+.room-header h1 {
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    text-shadow: 0 0 20px #00ff88;
+}
+
+.room-header p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    opacity: 0.8;
+}
+
+.room-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.room-stats span {
+    background: rgba(0, 255, 136, 0.1);
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1px solid #00ff88;
+}
+
+/* Tables Grid */
+.tables-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.mini-table-container {
+    background: rgba(0, 255, 136, 0.05);
+    border: 2px solid #00ff88;
+    border-radius: 15px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.mini-table-container:hover {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: #00ffaa;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
+}
+
+.mini-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.mini-table-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #00ff88;
+}
+
+.mini-table-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.stakes {
+    font-weight: bold;
+    color: #ffaa00;
+}
+
+.player-count {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Mini Table */
+.mini-table {
+    margin: 15px 0;
+    box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+.mini-player {
+    background: rgba(0, 255, 136, 0.2);
+    border: 1px solid #00ff88;
+    border-radius: 8px;
+    padding: 5px 8px;
+    text-align: center;
+    min-width: 80px;
+}
+
+.mini-player-name {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.mini-player-chips {
+    font-size: 0.7rem;
+    color: #ffaa00;
+}
+
+.mini-community-cards {
+    display: flex;
+    gap: 3px;
+}
+
+.mini-card {
+    background: white;
+    color: black;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    min-width: 15px;
+    text-align: center;
+}
+
+.mini-card-placeholder {
+    background: #333;
+    color: #666;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    min-width: 15px;
+    text-align: center;
+}
+
+.mini-pot {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ffaa00;
+    text-align: center;
+}
+
+/* Mini Table Actions */
+.mini-table-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.mini-join-btn, .mini-watch-btn {
+    padding: 8px 16px;
+    border: 2px solid #00ff88;
+    background: rgba(0, 255, 136, 0.1);
+    color: #00ff88;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.mini-join-btn:hover, .mini-watch-btn:hover {
+    background: #00ff88;
+    color: #000;
+    transform: scale(1.05);
+}
+
+.mini-watch-btn {
+    border-color: #ffaa00;
+    color: #ffaa00;
+    background: rgba(255, 170, 0, 0.1);
+}
+
+.mini-watch-btn:hover {
+    background: #ffaa00;
+    color: #000;
+}
+
+/* Full Table View */
+.full-table-container {
+    padding: 20px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    min-height: 100vh;
+    color: #00ff88;
+}
+
+.table-header {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #00ff88;
+    padding-bottom: 15px;
+}
+
+.table-header h2 {
+    margin: 0 0 10px 0;
+    font-size: 2rem;
+    text-shadow: 0 0 15px #00ff88;
+}
+
+.table-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.table-info span {
+    background: rgba(0, 255, 136, 0.1);
+    padding: 5px 12px;
+    border-radius: 5px;
+    border: 1px solid #00ff88;
+}
+
+.poker-table-full {
+    box-shadow: inset 0 0 30px rgba(0, 255, 136, 0.3);
+}
+
+.table-player {
+    background: rgba(0, 255, 136, 0.2);
+    border: 2px solid #00ff88;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    min-width: 120px;
+}
+
+.user-player {
+    border-color: #ffaa00;
+    background: rgba(255, 170, 0, 0.2);
+}
+
+.player-info {
+    margin-bottom: 8px;
+}
+
+.player-name {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+}
+
+.player-chips {
+    color: #ffaa00;
+    font-size: 0.8rem;
+}
+
+.player-card {
+    background: white;
+    color: black;
+    padding: 3px 6px;
+    border-radius: 3px;
+    margin: 0 2px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+.hidden-cards {
+    font-size: 1.2rem;
+}
+
+.action-indicator {
+    background: #ffaa00;
+    color: #000;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.community-card {
+    background: white;
+    color: black;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    min-width: 40px;
+    text-align: center;
+}
+
+.card-placeholder {
+    background: #333;
+    color: #666;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* Table Actions */
+.table-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.action-btn {
+    padding: 12px 24px;
+    border: 2px solid #00ff88;
+    background: rgba(0, 255, 136, 0.1);
+    color: #00ff88;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background: #00ff88;
+    color: #000;
+    transform: scale(1.05);
+}
+
+.fold-btn {
+    border-color: #ff4444;
+    color: #ff4444;
+    background: rgba(255, 68, 68, 0.1);
+}
+
+.fold-btn:hover {
+    background: #ff4444;
+    color: white;
+}
+
+.call-btn {
+    border-color: #4488ff;
+    color: #4488ff;
+    background: rgba(68, 136, 255, 0.1);
+}
+
+.call-btn:hover {
+    background: #4488ff;
+    color: white;
+}
+
+.raise-btn {
+    border-color: #ffaa00;
+    color: #ffaa00;
+    background: rgba(255, 170, 0, 0.1);
+}
+
+.raise-btn:hover {
+    background: #ffaa00;
+    color: #000;
+}
+
+.raise-input {
+    padding: 12px;
+    border: 2px solid #00ff88;
+    background: rgba(0, 255, 136, 0.1);
+    color: #00ff88;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    width: 100px;
+    text-align: center;
+}
+
+.raise-input:focus {
+    outline: none;
+    border-color: #ffaa00;
+    background: rgba(255, 170, 0, 0.1);
+}
+
+/* Room Controls */
+.room-controls, .table-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.room-btn, .control-btn {
+    padding: 12px 24px;
+    border: 2px solid #00ff88;
+    background: rgba(0, 255, 136, 0.1);
+    color: #00ff88;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.room-btn:hover, .control-btn:hover {
+    background: #00ff88;
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tables-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .mini-table-container {
+        padding: 10px;
+    }
+    
+    .room-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .table-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .table-actions {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .action-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .poker-table-full {
+        height: 400px;
+    }
+}
+

@@ -246,8 +246,13 @@ class TeslaPokerPlatform {
     showPokerGame(tableId = 1) {
         this.currentView = 'poker';
         this.currentTable = tableId;
+        
+        // Initialize multi-table poker room
+        if (!this.multiTableRoom) {
+            this.multiTableRoom = new MultiTablePokerRoom();
+        }
+        
         this.render();
-        this.initializeEnhancedPokerTable();
     }
 
     showTeslaChat() {
@@ -486,7 +491,10 @@ class TeslaPokerPlatform {
                 app.innerHTML = this.renderPokerLobby();
                 break;
             case 'poker':
-                app.innerHTML = this.renderEnhancedPokerGame();
+                if (!this.multiTableRoom) {
+                    this.multiTableRoom = new MultiTablePokerRoom();
+                }
+                app.innerHTML = this.multiTableRoom.render();
                 break;
             case 'chat':
                 app.innerHTML = this.renderTeslaChat();
